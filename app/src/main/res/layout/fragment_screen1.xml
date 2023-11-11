@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:id="@+id/GoQuiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="GO QUIZ"
+        android:textSize="64px"
+        android:layout_marginVertical="50dp"
+        android:textStyle="bold" />
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_marginVertical="15dp"
+        >
+
+
+            <TextView
+                android:id="@+id/textView_GoQuiz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chào mừng bạn đến với trò chơi GoQuiz.
+Trong trò chơi này, bạn  trả lời các câu hỏi theo các chủ đề: Lịch sử, Địa lý, Khoa học, Nghệ thuật,...
+Bạn có thể trả lời các câu hỏi ở 2 cấp độ là dễ và khó.
+Thành tích của bạn giữa các lần chơi sẽ được lưu lại. Khi mở ứng dụng, người dùng sẽ được đưa tới màn hình số 1.
+· Màn hình số 1: Đây là màn hình chào mừng " />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:layout_gravity="center"
+        />
+</LinearLayout>
