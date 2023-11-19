@@ -83,7 +83,7 @@ public class Screen3 extends Fragment {
                 setCheck(radioButton4, radioButton1, radioButton2, radioButton3);
             }
         });
-        checkClick(radioButton1, radioButton2, radioButton3, radioButton4);
+            checkClick(radioButton1, radioButton2, radioButton3, radioButton4);
 
 
         btnAnswer.setOnClickListener(new View.OnClickListener() {
