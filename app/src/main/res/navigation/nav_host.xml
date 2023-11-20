@@ -20,8 +20,8 @@
         android:label="fragment_screen3"
         tools:layout="@layout/fragment_screen3" >
         <action
-            android:id="@+id/action_screen3_to_screen2"
-            app:destination="@id/screen2" />
+            android:id="@+id/action_screen3_to_screen4"
+            app:destination="@id/screen4" />
     </fragment>
     <fragment
         android:id="@+id/screen1"
@@ -32,4 +32,9 @@
             android:id="@+id/action_screen1_to_screen2"
             app:destination="@id/screen2" />
     </fragment>
+    <fragment
+        android:id="@+id/screen4"
+        android:name="com.example.constraint_layout.Fragment.Screen4"
+        android:label="fragment_screen4"
+        tools:layout="@layout/fragment_screen4" />
 </navigation>

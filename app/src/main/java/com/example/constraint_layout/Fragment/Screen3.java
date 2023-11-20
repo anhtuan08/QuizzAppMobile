@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.constraint_layout.Data.ArtQuestion;
+import com.example.constraint_layout.Data.DataQuestionTopic;
 import com.example.constraint_layout.R;
 
 import org.json.JSONArray;
@@ -27,6 +28,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Screen3 extends Fragment {
@@ -37,12 +40,13 @@ public class Screen3 extends Fragment {
 
     Button btnAnswer;
 
-    Button  btngetId;
+    List<DataQuestionTopic> listTopic;
 
-    ArtQuestion artQuestion;
+    int getCurrentquestion = 0;
 
-    AssetManager assetManager;
+    int count = 0;
 
+    int correct, wrong;
 
 
     @Override
@@ -56,6 +60,8 @@ public class Screen3 extends Fragment {
         btnAnswer = view.findViewById(R.id.btnAnswer);
 
         loadAllQuestion();
+        setQuestionScreen(getCurrentquestion);
+
 
         radioButton1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,9 +98,28 @@ public class Screen3 extends Fragment {
                 if (!checkClick(radioButton1, radioButton2, radioButton3, radioButton4)) {
                         radioButton1.setError("");
                         radioButton1.requestFocus();
+                        return;
                 }
                 else {
-                   // Navigation.findNavController(v).navigate(R.id.action_screen3_to_screen2);
+                        if(radioButton1.isChecked()){
+                           count = listTopic.get(getCurrentquestion).getQ1().equals(listTopic.get(getCurrentquestion).getAnswer())? count++: count;
+
+                        } else if (radioButton2.isChecked()) {
+                            count = listTopic.get(getCurrentquestion).getQ2().equals(listTopic.get(getCurrentquestion).getAnswer())? count++: count;
+
+                        } else if (radioButton3.isChecked()) {
+                            count = listTopic.get(getCurrentquestion).getQ3().equals(listTopic.get(getCurrentquestion).getAnswer())? count++: count;
+
+                        } else if (radioButton4.isChecked()) {
+                            count = listTopic.get(getCurrentquestion).getQ4().equals(listTopic.get(getCurrentquestion).getAnswer())? count++: count;
+
+                        }
+                        getCurrentquestion++;
+                        if(getCurrentquestion > listTopic.size()){
+                                   Navigation.findNavController(view).navigate(R.id.action_screen3_to_screen4);
+                        }else {
+                            setQuestionScreen(getCurrentquestion);
+                        }
                 }
 
             }
@@ -104,20 +129,35 @@ public class Screen3 extends Fragment {
 
     private void loadAllQuestion() {
         String jsonQuiz = loadJsonFromAsset("easyQuestion.json");
+        listTopic = new ArrayList<>();
         try {
+
                 JSONObject jsonObject = new JSONObject(jsonQuiz);
                 JSONArray uerArray = jsonObject.getJSONArray("easyQuestionArt");
                 for (int i = 0; i < uerArray.length(); i++){
-                    JSONObject question = uerArray.getJSONObject(i);
-
+                    JSONObject topic = uerArray.getJSONObject(i);
+                    String questionString = topic.getString("question");
+                    String answerA = topic.getString("answerA");
+                    String answerB = topic.getString("answerB");
+                    String answerC = topic.getString("answerC");
+                    String answerD = topic.getString("answerA");
+                    String correctAns = topic.getString("correct");
+                    listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
                 }
-
-
 
         }
         catch (JSONException e){
             Log.d("Question", "Failed");
         }
+
+    }
+
+    private void setQuestionScreen(int currentQuestions) {
+        question.setText(listTopic.get(currentQuestions).getTextViewQuestion());
+        radioButton1.setText(listTopic.get(currentQuestions).getQ1());
+        radioButton2.setText(listTopic.get(currentQuestions).getQ2());
+        radioButton3.setText(listTopic.get(currentQuestions).getQ3());
+        radioButton4.setText(listTopic.get(currentQuestions).getQ4());
 
     }
 

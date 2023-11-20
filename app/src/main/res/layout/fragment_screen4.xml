@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,8 +7,51 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/textView_textAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="So cau tra loi dung"
+        android:layout_centerHorizontal="true"
+       android:layout_marginTop="100dp"
+        android:textSize="30dp"
+        />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textView_numberTruequestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_textAnswer"
+        android:textSize="60dp"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="50dp"
+        android:text="0"
+        />
+    <Button
+        android:id="@+id/btnComplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hoan thanh"
+        android:layout_below="@+id/textView_numberTruequestion"
+        android:layout_marginStart="50dp"
+        />
+    <Button
+        android:id="@+id/btnPlayAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/btnComplete"
+        android:layout_below="@+id/textView_numberTruequestion"
+        android:layout_marginStart="60dp"
+        android:text="Choi lai"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chia se thanh tich"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30dp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
