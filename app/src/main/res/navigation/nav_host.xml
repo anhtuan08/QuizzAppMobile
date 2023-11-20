@@ -36,5 +36,9 @@
         android:id="@+id/screen4"
         android:name="com.example.constraint_layout.Fragment.Screen4"
         android:label="fragment_screen4"
-        tools:layout="@layout/fragment_screen4" />
+        tools:layout="@layout/fragment_screen4" >
+        <action
+            android:id="@+id/action_screen4_to_screen1"
+            app:destination="@id/screen1" />
+    </fragment>
 </navigation>

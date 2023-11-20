@@ -1,11 +1,14 @@
 package com.example.constraint_layout.Fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
@@ -46,7 +49,6 @@ public class Screen3 extends Fragment {
 
     int count = 0;
 
-    int correct, wrong;
 
 
     @Override
@@ -93,6 +95,7 @@ public class Screen3 extends Fragment {
 
 
         btnAnswer.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
                 if (!checkClick(radioButton1, radioButton2, radioButton3, radioButton4)) {
@@ -102,22 +105,27 @@ public class Screen3 extends Fragment {
                 }
                 else {
                         if(radioButton1.isChecked()){
-                           count = listTopic.get(getCurrentquestion).getQ1().equals(listTopic.get(getCurrentquestion).getAnswer())? count++: count;
+                           count = listTopic.get(getCurrentquestion).getQ1().equals(listTopic.get(getCurrentquestion).getAnswer())?  count + 1 : count;
 
                         } else if (radioButton2.isChecked()) {
-                            count = listTopic.get(getCurrentquestion).getQ2().equals(listTopic.get(getCurrentquestion).getAnswer())? count++: count;
+                            count = listTopic.get(getCurrentquestion).getQ2().equals(listTopic.get(getCurrentquestion).getAnswer())? count + 1: count;
 
                         } else if (radioButton3.isChecked()) {
-                            count = listTopic.get(getCurrentquestion).getQ3().equals(listTopic.get(getCurrentquestion).getAnswer())? count++: count;
+                            count = listTopic.get(getCurrentquestion).getQ3().equals(listTopic.get(getCurrentquestion).getAnswer())? count + 1: count;
 
                         } else if (radioButton4.isChecked()) {
-                            count = listTopic.get(getCurrentquestion).getQ4().equals(listTopic.get(getCurrentquestion).getAnswer())? count++: count;
+                            count = listTopic.get(getCurrentquestion).getQ4().equals(listTopic.get(getCurrentquestion).getAnswer())? count + 1: count;
 
                         }
                         getCurrentquestion++;
-                        if(getCurrentquestion > listTopic.size()){
-                                   Navigation.findNavController(view).navigate(R.id.action_screen3_to_screen4);
-                        }else {
+                    if(getCurrentquestion > listTopic.size() - 1){
+                        Navigation.findNavController(view).navigate(R.id.action_screen3_to_screen4);
+                        Log.d("dem so cau hoi dung", String.valueOf(count));
+                        Bundle bundle = new Bundle();
+                        bundle.putString("count", String.valueOf(count));
+                        getParentFragmentManager().setFragmentResult("request", bundle);
+
+                    }else {
                             setQuestionScreen(getCurrentquestion);
                         }
                 }
@@ -140,7 +148,7 @@ public class Screen3 extends Fragment {
                     String answerA = topic.getString("answerA");
                     String answerB = topic.getString("answerB");
                     String answerC = topic.getString("answerC");
-                    String answerD = topic.getString("answerA");
+                    String answerD = topic.getString("answerD");
                     String correctAns = topic.getString("correct");
                     listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
                 }
