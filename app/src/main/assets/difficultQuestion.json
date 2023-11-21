@@ -1,7 +1,7 @@
 {
-  "difficultQuestionArt": [
+  "DifficultArt": [
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2023 asdadadasdasda",
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2023",
       "answerA": "buc tranh 1",
       "answerB": "buc tranh 2",
       "answerC": "buc tranh 3",
@@ -9,7 +9,7 @@
       "correct": "buc tranh 1"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2024 asdasdasdasda",
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2024",
       "answerA": "buc tranh 1",
       "answerB": "buc tranh 2",
       "answerC": "buc tranh 3",
@@ -17,7 +17,7 @@
       "correct": "buc tranh 2"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2025 adasdasdasd",
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2025",
       "answerA": "buc tranh 1",
       "answerB": "buc tranh 2",
       "answerC": "buc tranh 3",
@@ -25,7 +25,7 @@
       "correct": "buc tranh 3"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2026 asdadasasdas",
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2026",
       "answerA": "buc tranh 1",
       "answerB": "buc tranh 2",
       "answerC": "buc tranh 3",
@@ -33,7 +33,136 @@
       "correct": "buc tranh 4"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2027 asdasdasasdasdasdsa",
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2027",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 3"
+    }
+  ],
+
+  "DifficultScience": [
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2023",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 1"
+    },
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2024",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 2"
+    },
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2025",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 3"
+    },
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2026",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 4"
+    },
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2027",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 3"
+    }
+  ],
+
+  "DifficultHistory": [
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2023",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 1"
+    },
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2024",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 2"
+    },
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2025",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 3"
+    },
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2026",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 4"
+    },
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2027",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 3"
+    }
+  ],
+
+  "DifficultGeography": [
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2023",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 1"
+    },
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2024",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 2"
+    },
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2025",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 3"
+    },
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2026",
+      "answerA": "buc tranh 1",
+      "answerB": "buc tranh 2",
+      "answerC": "buc tranh 3",
+      "answerD": "buc tranh 4",
+      "correct": "buc tranh 4"
+    },
+    {
+      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2027",
       "answerA": "buc tranh 1",
       "answerB": "buc tranh 2",
       "answerC": "buc tranh 3",
