@@ -1,39 +1,40 @@
-package com.example.constraint_layout.Adapter;
+package com.example.Quizz_app.Adapter;
 
-import static java.security.AccessController.getContext;
-
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.cardview.widget.CardView;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.example.constraint_layout.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListQuestionAdapter extends RecyclerView.Adapter<ListQuestionAdapter.MyViewHolder>{
 
     private List<DataProduct> dataProducts;
 
-    public ListQuestionAdapter(List<DataProduct> dataProducts) {
+    private SetOnclickedForAnItem setOnclickedForAnItem;
+
+    public ListQuestionAdapter(List<DataProduct> dataProducts, SetOnclickedForAnItem setOnclickedForAnItem) {
         this.dataProducts = dataProducts;
+        this.setOnclickedForAnItem = setOnclickedForAnItem;
     }
 
 
-    static class MyViewHolder extends RecyclerView.ViewHolder{
+    static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView nameTopic;
         TextView descriptionTopic;
         ImageView imageTopic;
+
+        View abc;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -42,6 +43,7 @@ public class ListQuestionAdapter extends RecyclerView.Adapter<ListQuestionAdapte
             nameTopic = itemView.findViewById(R.id.textView_nameTopic);
             descriptionTopic = itemView.findViewById(R.id.textView_descriptionTopic);
             imageTopic = itemView.findViewById(R.id.image_topic);
+            abc = itemView.findViewById(R.id.listItemlayout);
 
             //lay tai nguyen
 
@@ -58,12 +60,12 @@ public class ListQuestionAdapter extends RecyclerView.Adapter<ListQuestionAdapte
         //Layout duoc nap la tung topic rieng le
         View itemTopic = inflater.inflate(R.layout.list_topic, parent, false);
 
-        itemTopic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.action_screen2_to_screen3);
-            }
-        });
+//        itemTopic.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Navigation.findNavController(v).navigate(R.id.action_screen2_to_screen3);
+//            }
+//        });
 
         //Tra ve mot phan tu moi cua MyViewHolder
         return new MyViewHolder(itemTopic);
@@ -83,6 +85,12 @@ public class ListQuestionAdapter extends RecyclerView.Adapter<ListQuestionAdapte
         holder.descriptionTopic.setText(dataProduct.decriptionTopic);
         holder.imageTopic.setImageResource(dataProduct.imageTopic);
 
+        holder.abc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setOnclickedForAnItem.onItemClicked(dataProduct);
+            }
+        });
     }
 
     @Override

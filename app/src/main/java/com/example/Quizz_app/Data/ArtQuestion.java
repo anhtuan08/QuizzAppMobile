@@ -1,4 +1,4 @@
-package com.example.constraint_layout.Data;
+package com.example.Quizz_app.Data;
 
 public class ArtQuestion {
     public static String[] artQuestionEasy = {

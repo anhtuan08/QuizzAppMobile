@@ -1,6 +1,4 @@
-package com.example.constraint_layout.Adapter;
-
-import android.media.Image;
+package com.example.Quizz_app.Adapter;
 
 public class DataProduct {
     String topic;

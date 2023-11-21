@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,30 +12,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="serif"
-        android:gravity="center"
-        android:layout_gravity="center"
         android:text="GO QUIZ"
         android:textSize="64px"
         android:layout_marginVertical="50dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        />
 
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         android:layout_marginVertical="15dp"
+        android:layout_below="@+id/GoQuiz"
         >
-
 
             <TextView
                 android:id="@+id/textView_GoQuiz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chào mừng bạn đến với trò chơi GoQuiz.
-Trong trò chơi này, bạn  trả lời các câu hỏi theo các chủ đề: Lịch sử, Địa lý, Khoa học, Nghệ thuật,...
-Bạn có thể trả lời các câu hỏi ở 2 cấp độ là dễ và khó.
-Thành tích của bạn giữa các lần chơi sẽ được lưu lại. Khi mở ứng dụng, người dùng sẽ được đưa tới màn hình số 1.
-· Màn hình số 1: Đây là màn hình chào mừng " />
+                android:text="Khi mở ứng dụng, người dùng sẽ được đưa tới màn hình số 1.
+· Màn hình số 1: Đây là màn hình chào mừng, màn hình này hiển thị giới thiệu ứng dụng và trò chơi (chú ý: Hãy làm cho phần giới thiệu này dài để có thể cuộn (scroll) được. Màn hình này có một nút Start, khi nhấn nút này, người dùng sẽ được chuyển sang màn hình số 2.
+· Màn hình số 2: Màn hình này hiển thị các chủ đề để người dùng chơi. Các chủ đề bao gồm: Địa lý, Lịch sử, Khoa học, Nghệ thuật,... (Có thể thêm các chủ đề khác nếu muốn). Mỗi phần lựa chọn chủ đề bao gồm một hình ảnh minh họa, tên chủ đề và mô tả cho cho chủ đề đó. Phía trên có mục Total Score hiển thị tổng điểm đạt điểm đạt được sau các lần chơi của người chơi. Phía dưới màn hình có một thanh gạt để lựa chọn cấp độ chơi: Dễ/Khó. Nếu người chơi chọn cấp độ khó, với mỗi câu trả lời đúng, người chơi sẽ được 2 điểm còn với cấp độ dễ thì chỉ được 1 điểm. Dưới cùng là một nút truy cập vào danh sách tất cả các câu hỏi, khi nhấn nút này, người dùng. Khi chọn bất kỳ lĩnh vực chơi nào, người
+· Màn hình số 3: Màn hình chơi, ở màn hình này sẽ hiển thị câu hỏi và 4 đáp án trả lời dưới dạng Radio Button và một nút Trả lời. Khi người dùng nhấn nút Trả lời, nếu người dùng trả lời đúng, câu hỏi khác sẽ được hiện ra. Nếu người dùng trả lời sai hoặc hết câu hỏi, người dùng sẽ được đưa đến màn hình sô 4.
+· Màn hình số 4: Màn hình hiển thị số điểm của người chơi trong lần chơi đó, một nút Hoàn thành sẽ đưa người chơi về màn hình số 1. Nút Chơi lại sẽ cho người dùng chơi lại ở cùng cấp độ và lĩnh vực. Nút Chia sẻ thành tích cho phép người dùng chia sẻ số điểm trong lần chơi đó qua các ứng dụng khác (tin nhắn).
+· Màn hình số 5: Hiển thị danh sách tất cả các câu hỏi và một menu để lọc các câu hỏi theo từng chủ đề. Khi chọn bất kỳ một câu hỏi nào, người dùng sẽ được đưa tới màn hình số 6.
+· Màn hình số 6: Màn hình hiển thị câu hỏi, các câu trả lời, đáp án đúng và độ khó.  " />
     </ScrollView>
 
     <Button
@@ -44,5 +46,8 @@ Thành tích của bạn giữa các lần chơi sẽ được lưu lại. Khi m
         android:layout_height="wrap_content"
         android:text="Start"
         android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
         />
-</LinearLayout>
+</RelativeLayout>

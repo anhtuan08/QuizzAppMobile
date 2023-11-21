@@ -1,14 +1,13 @@
-package com.example.constraint_layout.Fragment;
+package com.example.Quizz_app.Fragment;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.content.res.AssetManager;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
@@ -17,13 +16,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.constraint_layout.Data.ArtQuestion;
-import com.example.constraint_layout.Data.DataQuestionTopic;
+
+import com.example.Quizz_app.Adapter.DataProduct;
+import com.example.Quizz_app.Adapter.SetOnclickedForAnItem;
+import com.example.Quizz_app.Data.DataQuestionTopic;
 import com.example.constraint_layout.R;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,6 +62,7 @@ public class Screen3 extends Fragment {
         radioButton4 = view.findViewById(R.id.button4);
         btnAnswer = view.findViewById(R.id.btnAnswer);
 
+        getLevelFromScreen2();
         loadAllQuestion();
         setQuestionScreen(getCurrentquestion);
 
@@ -135,6 +137,18 @@ public class Screen3 extends Fragment {
 
     }
 
+    private void getLevelFromScreen2() {
+        getParentFragmentManager().setFragmentResultListener("ChangeLevel", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                int level = result.getInt("Hard");
+                 if(level == 1){
+                     // day bo du lieu cau hoi kho vao
+                 }
+            }
+        });
+    }
+
     private void loadAllQuestion() {
         String jsonQuiz = loadJsonFromAsset("easyQuestion.json");
         listTopic = new ArrayList<>();
@@ -207,9 +221,6 @@ public class Screen3 extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_screen3, container, false);
     }
-
-
-
 
 
 }
