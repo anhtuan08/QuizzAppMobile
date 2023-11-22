@@ -1,44 +1,44 @@
 {
   "easyQuestionArt": [
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2023",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 1"
+      "question": "Trong thời kỳ âm nhạc cổ điển, khi mà các bản giao hưởng đều có 4 chương thì tác phẩm nào lại có 5 chương ?",
+      "answerA": "Bản giao hưởng đồng quê”- Beethoven",
+      "answerB": "Bốn mùa”- Vivaldi",
+      "answerC": "Hành khúc Thổ Nhĩ Kỳ”- Mozart",
+      "answerD": "Sông Danube xanh”- Strauss",
+      "correct": "Bản giao hưởng đồng quê”- Beethoven"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2024",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 2"
+      "question": "Mĩ thuật Việt Nam thời kì cổ đại được biết đến chủ yếu qua di sản mĩ thuật của nền văn hóa:",
+      "answerA": "Phùng Hưng",
+      "answerB": "Đồng Đậu",
+      "answerC": "Gò Mun",
+      "answerD": "Cả A, B, C đều đúng",
+      "correct": "Cả A, B, C đều đúng"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2025",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 3"
+      "question": "Tranh khắc gỗ màu Ngày chủ nhật (Nguyễn Tiến Chung, 1960) thuộc thể loại mĩ thuật tạo hình:",
+      "answerA": "Điêu khắc.",
+      "answerB": "Hội họa.",
+      "answerC": "Đồ họa tranh in.",
+      "answerD": "Phù điêu. ",
+      "correct": "Hội họa."
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2026",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 4"
+      "question": " Bìa Sách giáo khoa Mĩ thuật thuộc thể loại mĩ thuật tạo hình:",
+      "answerA": "Thiết kế đồ họa.",
+      "answerB": "Hội họa.",
+      "answerC": "Đồ họa tranh in.",
+      "answerD": "Thiết kế công nghiệp.",
+      "correct": "Thiết kế đồ họa."
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2027",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 3"
+      "question": "Tượng đài Ba Tơ thuộc thể loại mĩ thuật tạo hình:",
+      "answerA": "Phù điêu.",
+      "answerB": "Điêu khắc.",
+      "answerC": "Kiến trúc.",
+      "answerD": "Hội họa.",
+      "correct": "Kiến trúc."
     }
   ],
 

@@ -9,14 +9,14 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import com.example.Quizz_app.Adapter.DataProduct;
+import com.example.Quizz_app.Data.DataProduct;
 import com.example.Quizz_app.Adapter.ListQuestionAdapter;
 import com.example.Quizz_app.Adapter.SetOnclickedForAnItem;
 import com.example.constraint_layout.R;
@@ -32,6 +32,8 @@ public class Screen2 extends Fragment {
 
     Switch btnLevel;
 
+    Button btnListQuestion;
+
     int flag;
 
     int art, geo, his , scien;
@@ -43,15 +45,16 @@ public class Screen2 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.Recycle_View);
         btnLevel = view.findViewById(R.id.btnSwitch_level);
+        btnListQuestion = view.findViewById(R.id.btnListQuestion);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         arrayList = new ArrayList<>();
 
-        arrayList.add(new DataProduct("khoa hoc", "day la khoa hoc", R.drawable.science));
-        arrayList.add(new DataProduct("nghe thuat", "day la nghe thuat", R.drawable.art));
-        arrayList.add(new DataProduct("Lich su", "day la lich su ", R.drawable.history));
-        arrayList.add(new DataProduct("Dia ly", "day la dia ly", R.drawable.geography));
+        arrayList.add(new DataProduct("khoa hoc", "Day la cac cau hoi ve chu de khoa hoc", R.drawable.science));
+        arrayList.add(new DataProduct("nghe thuat", "Day la cac cau hoi ve chu de nghe thuat", R.drawable.art));
+        arrayList.add(new DataProduct("Lich su", "Day la cac cau hoi ve chu de lich su", R.drawable.history));
+        arrayList.add(new DataProduct("Dia ly", "Day la cac cau hoi ve chu de dia ly", R.drawable.geography));
 
         listQuestionAdapter = new ListQuestionAdapter(arrayList, new SetOnclickedForAnItem() {
             @Override
@@ -77,6 +80,13 @@ public class Screen2 extends Fragment {
         });
 
         recyclerView.setAdapter(listQuestionAdapter);
+
+        btnListQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_screen2_to_screen5);
+            }
+        });
 
 
     }

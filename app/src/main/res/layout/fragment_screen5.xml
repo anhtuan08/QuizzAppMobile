@@ -1,0 +1,42 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.Quizz_app.Fragment.Screen5">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        >
+
+        <TextView
+            android:id="@+id/textView_suggestTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chủ đề"
+            android:textSize="30sp"
+            android:layout_marginTop="20dp"
+            />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView_suggestTopic"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"/>
+
+    </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleView_listQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_below="@+id/textView_suggestTopic"
+                />
+
+</LinearLayout>

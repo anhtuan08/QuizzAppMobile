@@ -170,6 +170,7 @@ public class Screen3 extends Fragment {
 
             JSONObject jsonObject = new JSONObject(jsonQuiz);
             if(SelectedTopic.equals("art")){
+                Log.d("SelectedTopic", SelectedTopic);
                 JSONArray uerArray = jsonObject.getJSONArray("DifficultArt");
                 for (int i = 0; i < uerArray.length(); i++){
                     JSONObject topic = uerArray.getJSONObject(i);

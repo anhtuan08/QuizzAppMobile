@@ -7,11 +7,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.Quizz_app.Data.DataProduct;
 import com.example.constraint_layout.R;
 
 import java.util.List;
@@ -81,9 +80,9 @@ public class ListQuestionAdapter extends RecyclerView.Adapter<ListQuestionAdapte
         //Lay vi tri cua tung phan tu trong List voi tham chieu truyen vao la dataProducts
         dataProduct = dataProducts.get(position);
 
-        holder.nameTopic.setText(dataProduct.topic);
-        holder.descriptionTopic.setText(dataProduct.decriptionTopic);
-        holder.imageTopic.setImageResource(dataProduct.imageTopic);
+        holder.nameTopic.setText(dataProduct.getTopic());
+        holder.descriptionTopic.setText(dataProduct.getDecriptionTopic());
+        holder.imageTopic.setImageResource(dataProduct.getImageTopic());
 
         holder.abc.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,4 +1,4 @@
-package com.example.Quizz_app.Adapter;
+package com.example.Quizz_app.Data;
 
 public class DataProduct {
     String topic;

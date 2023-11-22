@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_screen2_to_screen3"
             app:destination="@id/screen3" />
+        <action
+            android:id="@+id/action_screen2_to_screen5"
+            app:destination="@id/screen5" />
     </fragment>
     <fragment
         android:id="@+id/screen3"
@@ -41,4 +44,9 @@
             android:id="@+id/action_screen4_to_screen1"
             app:destination="@id/screen1" />
     </fragment>
+    <fragment
+        android:id="@+id/screen5"
+        android:name="com.example.Quizz_app.Fragment.Screen5"
+        android:label="fragment_screen5"
+        tools:layout="@layout/fragment_screen5" />
 </navigation>

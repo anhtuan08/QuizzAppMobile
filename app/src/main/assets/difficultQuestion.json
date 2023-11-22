@@ -1,43 +1,43 @@
 {
   "DifficultArt": [
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2023",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
+      "question": "Sumer, Akkad, Assyria và Babylon là những nơi xuất hiện nền mĩ thuật thế giới ở:",
+      "answerA": "Ai Cập.",
+      "answerB": "Lưỡng Hà.",
+      "answerC": "Ấn Độ.",
+      "answerD": "Địa Trung Hải.",
       "correct": "buc tranh 1"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2024",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
+      "question": "Đâu là nơi diễn ra nền mĩ thuật thế giới cổ đại:",
+      "answerA": "Dọc theo hạ lưu sông Nin.",
+      "answerB": "Lưu vực sông Ấn.",
+      "answerC": "Khu vực thung lũng dọc theo Hoàng Hà và Trường Giang.",
+      "answerD": "Cả A, B, C đều đúng.",
       "correct": "buc tranh 2"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2025",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
+      "question": "Ngôi đền thờ Althena có niên đại khoảng 500 năm trước Công nguyên nằm tại:",
+      "answerA": "Hy Lạp.",
+      "answerB": "Ai Cập.",
+      "answerC": "Ấn Độ.",
+      "answerD": "Lưỡng Hà.",
       "correct": "buc tranh 3"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2026",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
+      "question": "Bình gốm của nền văn minh Ấn Độ cổ đại có niên đại khoảng:",
+      "answerA": "3 400 đến 3 000 năm TCN.",
+      "answerB": "1 186 đến 1 172 năm TCN.",
+      "answerC": "Năm 850 đến năm 1250.",
+      "answerD": "500 năm TCN.",
       "correct": "buc tranh 4"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2027",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
+      "question": "Tượng đồng có niên đại khoảng năm 850 đến năm 1250 thuộc:",
+      "answerA": "La Mã cổ đại.",
+      "answerB": "Ấn Độ cổ đại.",
+      "answerC": " Lưỡng Hà cổ đại.",
+      "answerD": "Cả A, B, C đều sai.",
       "correct": "buc tranh 3"
     }
   ],
