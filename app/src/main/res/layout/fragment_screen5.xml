@@ -23,20 +23,41 @@
             android:layout_marginTop="20dp"
             />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/textView_suggestTopic"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            >
+            <AutoCompleteTextView
+                android:id="@+id/autoComplete_Topic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            
+        </com.google.android.material.textfield.TextInputLayout>
 
     </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycleView_listQuestion"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_below="@+id/textView_suggestTopic"
-                />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_marginVertical="30dp"
+        android:layout_marginHorizontal="30dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleView_listQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:background="@color/brown"
+            />
+
+    </ScrollView>
+
 
 </LinearLayout>

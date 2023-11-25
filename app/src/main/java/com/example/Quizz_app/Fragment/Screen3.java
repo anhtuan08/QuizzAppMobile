@@ -7,7 +7,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
@@ -18,6 +17,8 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.example.Quizz_app.Activity.MainActivity;
+import com.example.Quizz_app.Data.DataProduct;
 import com.example.Quizz_app.Data.DataQuestionTopic;
 import com.example.constraint_layout.R;
 
@@ -48,8 +49,6 @@ public class Screen3 extends Fragment {
 
     String SelectedTopic;
 
-    int SelectedLevelTopic;
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -60,17 +59,10 @@ public class Screen3 extends Fragment {
         radioButton3 = view.findViewById(R.id.button3);
         radioButton4 = view.findViewById(R.id.button4);
         btnAnswer = view.findViewById(R.id.btnAnswer);
-
-        getLevelFromScreen2();
-        getTopicFromScreen2();
-        if(SelectedLevelTopic == 1){
-            loadAlldiffQuestion();
-        }
-        else{
-            loadAlleasyQuestion();
-
-        }
+        SelectedTopic = MainActivity.getTopic();
+        getLevelTopic();
         setQuestionScreen(getCurrentquestion);
+
 
         radioButton1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,167 +128,249 @@ public class Screen3 extends Fragment {
                             setQuestionScreen(getCurrentquestion);
                         }
                 }
-
             }
         });
 
     }
 
-    private void getLevelFromScreen2() {
-        getParentFragmentManager().setFragmentResultListener("ChangeLevel", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                SelectedLevelTopic = result.getInt("lua chon cau hoi");
-                Log.d("SelectedLevelTopic", String.valueOf(SelectedLevelTopic));
-            }
-        });
-    }
-
-    private void getTopicFromScreen2() {
-        getParentFragmentManager().setFragmentResultListener("abcd", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                SelectedTopic = result.getString("a");
-                Log.d("SelectedTopic", SelectedTopic);
-            }
-        });
+    private void getLevelTopic() {
+        if(MainActivity.getLevel() == 1){
+            loadAlldiffQuestion();
+        }
+        else{
+            loadAlleasyQuestion();
+        }
     }
 
 
     private void loadAlldiffQuestion() {
+        if(String.valueOf(SelectedTopic).equals("khoa hoc")){
+            getScienceTopicHard();
+        }
+        else if(String.valueOf(SelectedTopic).equals("nghe thuat")) {
+            getArtTopicHard();
+        }
+        else if(String.valueOf(SelectedTopic).equals("lich su")) {
+            getHistoryTopicHard();
+
+        }
+        else{
+            getGeographyTopicHard();
+        }
+    }
+
+    private void getGeographyTopicHard() {
         String jsonQuiz = loadJsonFromAsset("difficultQuestion.json");
         listTopic = new ArrayList<>();
         try {
-
             JSONObject jsonObject = new JSONObject(jsonQuiz);
-            if(SelectedTopic.equals("art")){
-                Log.d("SelectedTopic", SelectedTopic);
-                JSONArray uerArray = jsonObject.getJSONArray("DifficultArt");
-                for (int i = 0; i < uerArray.length(); i++){
-                    JSONObject topic = uerArray.getJSONObject(i);
-                    String questionString = topic.getString("question");
-                    String answerA = topic.getString("answerA");
-                    String answerB = topic.getString("answerB");
-                    String answerC = topic.getString("answerC");
-                    String answerD = topic.getString("answerD");
-                    String correctAns = topic.getString("correct");
-                    listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
-                }
+            JSONArray uerArray = jsonObject.getJSONArray("DifficultGeography");
+            Log.d("arrrarrrrry", uerArray.toString());
+            for (int i = 0; i < uerArray.length(); i++) {
+                JSONObject topic = uerArray.getJSONObject(i);
+                String questionString = topic.getString("question");
+                String answerA = topic.getString("answerA");
+                String answerB = topic.getString("answerB");
+                String answerC = topic.getString("answerC");
+                String answerD = topic.getString("answerD");
+                String correctAns = topic.getString("correct");
+                listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
+                Log.d("cienceeeee", listTopic.toString());
             }
-            if(SelectedTopic.equals("science")){
-                JSONArray uerArray = jsonObject.getJSONArray("DifficultScience");
-                for (int i = 0; i < uerArray.length(); i++){
-                    JSONObject topic = uerArray.getJSONObject(i);
-                    String questionString = topic.getString("question");
-                    String answerA = topic.getString("answerA");
-                    String answerB = topic.getString("answerB");
-                    String answerC = topic.getString("answerC");
-                    String answerD = topic.getString("answerD");
-                    String correctAns = topic.getString("correct");
-                    listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
-                }
-            }
-            else if(SelectedTopic.equals("his")){
-                JSONArray uerArray = jsonObject.getJSONArray("DifficultHistory");
-                for (int i = 0; i < uerArray.length(); i++){
-                    JSONObject topic = uerArray.getJSONObject(i);
-                    String questionString = topic.getString("question");
-                    String answerA = topic.getString("answerA");
-                    String answerB = topic.getString("answerB");
-                    String answerC = topic.getString("answerC");
-                    String answerD = topic.getString("answerD");
-                    String correctAns = topic.getString("correct");
-                    listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
-                }
-            }
-            else if(SelectedTopic.equals("geo")){
-                JSONArray uerArray = jsonObject.getJSONArray("DifficultGeography");
-                for (int i = 0; i < uerArray.length(); i++){
-                    JSONObject topic = uerArray.getJSONObject(i);
-                    String questionString = topic.getString("question");
-                    String answerA = topic.getString("answerA");
-                    String answerB = topic.getString("answerB");
-                    String answerC = topic.getString("answerC");
-                    String answerD = topic.getString("answerD");
-                    String correctAns = topic.getString("correct");
-                    listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
-                }
-            }
-
         }
-        catch (JSONException e){
-            Log.d("Question", "Failed");
+        catch (JSONException e) {
+            Log.d("abcdfgh", "Failed");
+        }
+    }
+
+    private void getHistoryTopicHard() {
+        String jsonQuiz = loadJsonFromAsset("difficultQuestion.json");
+        listTopic = new ArrayList<>();
+        try {
+            JSONObject jsonObject = new JSONObject(jsonQuiz);
+            JSONArray uerArray = jsonObject.getJSONArray("DifficultHistory");
+            Log.d("arrrarrrrry", uerArray.toString());
+            for (int i = 0; i < uerArray.length(); i++) {
+                JSONObject topic = uerArray.getJSONObject(i);
+                String questionString = topic.getString("question");
+                String answerA = topic.getString("answerA");
+                String answerB = topic.getString("answerB");
+                String answerC = topic.getString("answerC");
+                String answerD = topic.getString("answerD");
+                String correctAns = topic.getString("correct");
+                listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
+                Log.d("cienceeeee", listTopic.toString());
+            }
+        }
+        catch (JSONException e) {
+            Log.d("abcdfgh", "Failed");
         }
 
     }
 
+    private void getArtTopicHard() {
+        String jsonQuiz = loadJsonFromAsset("difficultQuestion.json");
+        listTopic = new ArrayList<>();
+        try {
+            JSONObject jsonObject = new JSONObject(jsonQuiz);
+            JSONArray uerArray = jsonObject.getJSONArray("DifficultArt");
+            Log.d("arrrarrrrry", uerArray.toString());
+            for (int i = 0; i < uerArray.length(); i++) {
+                JSONObject topic = uerArray.getJSONObject(i);
+                String questionString = topic.getString("question");
+                String answerA = topic.getString("answerA");
+                String answerB = topic.getString("answerB");
+                String answerC = topic.getString("answerC");
+                String answerD = topic.getString("answerD");
+                String correctAns = topic.getString("correct");
+                listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
+                Log.d("cienceeeee", listTopic.toString());
+            }
+        }
+        catch (JSONException e) {
+            Log.d("abcdfgh", "Failed");
+        }
+
+    }
+
+    private void getScienceTopicHard() {
+        String jsonQuiz = loadJsonFromAsset("difficultQuestion.json");
+        listTopic = new ArrayList<>();
+        try {
+            JSONObject jsonObject = new JSONObject(jsonQuiz);
+            JSONArray uerArray = jsonObject.getJSONArray("DifficultScience");
+            Log.d("arrrarrrrry", uerArray.toString());
+            for (int i = 0; i < uerArray.length(); i++) {
+                JSONObject topic = uerArray.getJSONObject(i);
+                String questionString = topic.getString("question");
+                String answerA = topic.getString("answerA");
+                String answerB = topic.getString("answerB");
+                String answerC = topic.getString("answerC");
+                String answerD = topic.getString("answerD");
+                String correctAns = topic.getString("correct");
+                listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
+                Log.d("cienceeeee", listTopic.toString());
+            }
+        }
+        catch (JSONException e) {
+            Log.d("abcdfgh", "Failed");
+        }
+    }
+
+
     private void loadAlleasyQuestion() {
+        if(String.valueOf(SelectedTopic).equals("khoa hoc")){
+                 getScienceTopic();
+        }
+        else if(String.valueOf(SelectedTopic).equals("nghe thuat")) {
+                getArtTopic();
+        }
+        else if(String.valueOf(SelectedTopic).equals("lich su")) {
+                getHistoryTopic();
+
+        }
+        else{
+                getGeographyTopic();
+        }
+                }
+
+    private void getGeographyTopic() {
         String jsonQuiz = loadJsonFromAsset("easyQuestion.json");
         listTopic = new ArrayList<>();
         try {
-
-                JSONObject jsonObject = new JSONObject(jsonQuiz);
-                if(SelectedTopic.equals("scien")){
-                    JSONArray uerArray = jsonObject.getJSONArray("easyQuestionScience");
-                    for (int i = 0; i < uerArray.length(); i++){
-                        JSONObject topic = uerArray.getJSONObject(i);
-                        String questionString = topic.getString("question");
-                        String answerA = topic.getString("answerA");
-                        String answerB = topic.getString("answerB");
-                        String answerC = topic.getString("answerC");
-                        String answerD = topic.getString("answerD");
-                        String correctAns = topic.getString("correct");
-                        listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
-                    }
-                }
-            else if(SelectedTopic.equals("art")){
-                JSONArray uerArray = jsonObject.getJSONArray("easyQuestionArt");
-                for (int i = 0; i < uerArray.length(); i++){
-                    JSONObject topic = uerArray.getJSONObject(i);
-                    String questionString = topic.getString("question");
-                    String answerA = topic.getString("answerA");
-                    String answerB = topic.getString("answerB");
-                    String answerC = topic.getString("answerC");
-                    String answerD = topic.getString("answerD");
-                    String correctAns = topic.getString("correct");
-                    listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
-                }
+            JSONObject jsonObject = new JSONObject(jsonQuiz);
+            JSONArray uerArray = jsonObject.getJSONArray("easyQuestionGeography");
+            Log.d("arrrarrrrry", uerArray.toString());
+            for (int i = 0; i < uerArray.length(); i++) {
+                JSONObject topic = uerArray.getJSONObject(i);
+                String questionString = topic.getString("question");
+                String answerA = topic.getString("answerA");
+                String answerB = topic.getString("answerB");
+                String answerC = topic.getString("answerC");
+                String answerD = topic.getString("answerD");
+                String correctAns = topic.getString("correct");
+                listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
+                Log.d("cienceeeee", listTopic.toString());
             }
-
-            else if(SelectedTopic.equals("his")){
-                JSONArray uerArray = jsonObject.getJSONArray("easyQuestionHistory");
-                for (int i = 0; i < uerArray.length(); i++){
-                    JSONObject topic = uerArray.getJSONObject(i);
-                    String questionString = topic.getString("question");
-                    String answerA = topic.getString("answerA");
-                    String answerB = topic.getString("answerB");
-                    String answerC = topic.getString("answerC");
-                    String answerD = topic.getString("answerD");
-                    String correctAns = topic.getString("correct");
-                    listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
-                }
-            }
-
-            else if(SelectedTopic.equals("geo")){
-                JSONArray uerArray = jsonObject.getJSONArray("easyQuestionGeography");
-                for (int i = 0; i < uerArray.length(); i++){
-                    JSONObject topic = uerArray.getJSONObject(i);
-                    String questionString = topic.getString("question");
-                    String answerA = topic.getString("answerA");
-                    String answerB = topic.getString("answerB");
-                    String answerC = topic.getString("answerC");
-                    String answerD = topic.getString("answerD");
-                    String correctAns = topic.getString("correct");
-                    listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
-                }
-            }
-
         }
-        catch (JSONException e){
-            Log.d("Question", "Failed");
+        catch (JSONException e) {
+            Log.d("abcdfgh", "Failed");
         }
-
     }
+
+    private void getHistoryTopic() {
+        String jsonQuiz = loadJsonFromAsset("easyQuestion.json");
+        listTopic = new ArrayList<>();
+        try {
+            JSONObject jsonObject = new JSONObject(jsonQuiz);
+            JSONArray uerArray = jsonObject.getJSONArray("easyQuestionHistory");
+            Log.d("arrrarrrrry", uerArray.toString());
+            for (int i = 0; i < uerArray.length(); i++) {
+                JSONObject topic = uerArray.getJSONObject(i);
+                String questionString = topic.getString("question");
+                String answerA = topic.getString("answerA");
+                String answerB = topic.getString("answerB");
+                String answerC = topic.getString("answerC");
+                String answerD = topic.getString("answerD");
+                String correctAns = topic.getString("correct");
+                listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
+                Log.d("cienceeeee", listTopic.toString());
+            }
+        }
+        catch (JSONException e) {
+            Log.d("abcdfgh", "Failed");
+        }
+    }
+
+    private void getArtTopic() {
+        String jsonQuiz = loadJsonFromAsset("easyQuestion.json");
+        listTopic = new ArrayList<>();
+        try {
+            JSONObject jsonObject = new JSONObject(jsonQuiz);
+            JSONArray uerArray = jsonObject.getJSONArray("easyQuestionArt");
+            Log.d("arrrarrrrry", uerArray.toString());
+            for (int i = 0; i < uerArray.length(); i++) {
+                JSONObject topic = uerArray.getJSONObject(i);
+                String questionString = topic.getString("question");
+                String answerA = topic.getString("answerA");
+                String answerB = topic.getString("answerB");
+                String answerC = topic.getString("answerC");
+                String answerD = topic.getString("answerD");
+                String correctAns = topic.getString("correct");
+                listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
+                Log.d("cienceeeee", listTopic.toString());
+            }
+        }
+        catch (JSONException e) {
+            Log.d("abcdfgh", "Failed");
+        }
+    }
+
+    private void getScienceTopic() {
+        String jsonQuiz = loadJsonFromAsset("easyQuestion.json");
+        listTopic = new ArrayList<>();
+        try {
+            JSONObject jsonObject = new JSONObject(jsonQuiz);
+            JSONArray uerArray = jsonObject.getJSONArray("easyQuestionScience");
+            Log.d("arrrarrrrry", uerArray.toString());
+            for (int i = 0; i < uerArray.length(); i++) {
+                JSONObject topic = uerArray.getJSONObject(i);
+                String questionString = topic.getString("question");
+                String answerA = topic.getString("answerA");
+                String answerB = topic.getString("answerB");
+                String answerC = topic.getString("answerC");
+                String answerD = topic.getString("answerD");
+                String correctAns = topic.getString("correct");
+                listTopic.add(new DataQuestionTopic(questionString, answerA, answerB, answerC, answerD, correctAns));
+                Log.d("cienceeeee", listTopic.toString());
+            }
+        }
+        catch (JSONException e) {
+            Log.d("abcdfgh", "Failed");
+        }
+    }
+
+
 
     private void setQuestionScreen(int currentQuestions) {
         question.setText(listTopic.get(currentQuestions).getTextViewQuestion());

@@ -5,10 +5,12 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +18,11 @@ import android.widget.Button;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.example.Quizz_app.Activity.MainActivity;
 import com.example.Quizz_app.Data.DataProduct;
 import com.example.Quizz_app.Adapter.ListQuestionAdapter;
 import com.example.Quizz_app.Adapter.SetOnclickedForAnItem;
+import com.example.Quizz_app.ViewModel.ItemViewModel;
 import com.example.constraint_layout.R;
 
 import java.util.ArrayList;
@@ -36,7 +40,9 @@ public class Screen2 extends Fragment {
 
     int flag;
 
-    int art, geo, his , scien;
+    String topic;
+
+    ItemViewModel itemViewModel;
 
 
 
@@ -53,28 +59,20 @@ public class Screen2 extends Fragment {
 
         arrayList.add(new DataProduct("khoa hoc", "Day la cac cau hoi ve chu de khoa hoc", R.drawable.science));
         arrayList.add(new DataProduct("nghe thuat", "Day la cac cau hoi ve chu de nghe thuat", R.drawable.art));
-        arrayList.add(new DataProduct("Lich su", "Day la cac cau hoi ve chu de lich su", R.drawable.history));
-        arrayList.add(new DataProduct("Dia ly", "Day la cac cau hoi ve chu de dia ly", R.drawable.geography));
+        arrayList.add(new DataProduct("lich su", "Day la cac cau hoi ve chu de lich su", R.drawable.history));
+        arrayList.add(new DataProduct("dia ly", "Day la cac cau hoi ve chu de dia ly", R.drawable.geography));
 
         listQuestionAdapter = new ListQuestionAdapter(arrayList, new SetOnclickedForAnItem() {
             @Override
             public void onItemClicked(DataProduct dataProduct) {
-                if(dataProduct.getTopic().equals("khoa hoc")){
-                    scien ++;
-                }
-                else if (dataProduct.getTopic().equals("nghe thuat"))
-                {
-                    art++;
-                } else if (dataProduct.getTopic().equals("Lich su")) {
-                    his++;
-                } else if (dataProduct.getTopic().equals("Dia ly")) {
-                    geo++;
-                }
+
                 showToast( "Ban da chon chu de " + dataProduct.getTopic());
-                //Navigation.findNavController(view).navigate(R.id.action_screen2_to_screen3);
+                topic = dataProduct.getTopic();
+
                 getLevelQuestion();
-                getTopicQuestion(scien, art, his, geo);
-                //Navigation.findNavController(view).navigate(R.id.action_screen2_to_screen3);
+                getTopicQuestion(topic);
+                sendDataToActivity();
+                Navigation.findNavController(view).navigate(R.id.action_screen2_to_screen3);
             }
 
         });
@@ -91,45 +89,32 @@ public class Screen2 extends Fragment {
 
     }
 
+    private void getTopicQuestion(String s) {
+    }
+
+    private void sendDataToActivity() {
+        itemViewModel =  new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
+
+        itemViewModel.setLevel(flag);
+        itemViewModel.setTopic(topic);
+
+        Log.d("chon topiccc", String.valueOf(itemViewModel.getTopic()));
+
+    }
+
     private void showToast(String s) {
         Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show();
     }
 
-    private void getTopicQuestion(int a, int b, int c, int d) {
-        if(a == 1)
-        {
-            Bundle bundle = new Bundle();
-            bundle.putString("a", "science");
-            getParentFragmentManager().setFragmentResult("abcd", bundle);
-        }
-        else if (b == 1){
-            Bundle bundle = new Bundle();
-            bundle.putString("a", "art");
-            getParentFragmentManager().setFragmentResult("abcd", bundle);
-        }
-        else if (c == 1){
-            Bundle bundle = new Bundle();
-            bundle.putString("a", "his");
-            getParentFragmentManager().setFragmentResult("abcd", bundle);
-        }
-        else if (d == 1){
-            Bundle bundle = new Bundle();
-            bundle.putString("a", "geo");
-            getParentFragmentManager().setFragmentResult("abcd", bundle);
-        }
-    }
 
-
-    private void getLevelQuestion() {
+    private int getLevelQuestion() {
         if(btnLevel.isChecked()){
             flag++;
         }
         else {
             flag = 0;
         }
-        Bundle bundle = new Bundle();
-        bundle.putInt("lua chon cau hoi", flag);
-        getParentFragmentManager().setFragmentResult("ChangeLevel", bundle);
+        return flag;
     }
 
 

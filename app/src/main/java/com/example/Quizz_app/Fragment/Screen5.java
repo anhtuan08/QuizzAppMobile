@@ -12,11 +12,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.Quizz_app.Adapter.ListQuestionAdapter;
 import com.example.Quizz_app.Adapter.SetListQuestionOnScreenAdapter;
 import com.example.Quizz_app.Data.DataListQuestion;
+import com.example.Quizz_app.Data.DataProduct;
 import com.example.constraint_layout.R;
 
 import org.json.JSONArray;
@@ -38,12 +43,26 @@ public class Screen5 extends Fragment {
 
     RecyclerView recyclerView;
 
+    AutoCompleteTextView autoCompleteTextView;
+
+    ArrayAdapter<String> arrayAdapter;
+
+
+    String[] topic = {"khoa hoc, dia ly, lich su, nghe thuat"};
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         abc = view.findViewById(R.id.textView_eachQuestion);
         recyclerView = view.findViewById(R.id.recycleView_listQuestion);
+        autoCompleteTextView = view.findViewById(R.id.autoComplete_Topic);
+
+        arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.list_question);
+
+        autoCompleteTextView.setAdapter(arrayAdapter);
+
+
         String jsonQuiz = loadJsonFromAsset("easyQuestion.json");
         listQuestionInlist = new ArrayList<>();
 
