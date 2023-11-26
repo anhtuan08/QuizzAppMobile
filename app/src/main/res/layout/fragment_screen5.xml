@@ -1,8 +1,8 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.example.Quizz_app.Fragment.Screen5">
 
@@ -22,23 +22,26 @@
             android:textSize="30sp"
             android:layout_marginTop="20dp"
             />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/textView_suggestTopic"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            >
-            <AutoCompleteTextView
-                android:id="@+id/autoComplete_Topic"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                />
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_toRightOf="@+id/textView_suggestTopic"
+                >
 
-            
-        </com.google.android.material.textfield.TextInputLayout>
+            <AutoCompleteTextView
+                android:id="@+id/spinnerTopic"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_marginStart="10dp"
+                android:layout_toRightOf="@+id/textView_suggestTopic"
+                >
+
+            </AutoCompleteTextView>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
     </RelativeLayout>
 

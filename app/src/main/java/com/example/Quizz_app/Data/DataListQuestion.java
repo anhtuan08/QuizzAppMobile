@@ -12,8 +12,6 @@ public class DataListQuestion {
         this.listQuestion = listQuestion;
     }
 
-
-
     public DataListQuestion(String listQuestion) {
         this.listQuestion = listQuestion;
     }
