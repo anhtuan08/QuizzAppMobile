@@ -8,6 +8,17 @@ public class ItemViewModel extends ViewModel {
 
     MutableLiveData<String> topic = new MutableLiveData<>();
     MutableLiveData<Integer> level = new MutableLiveData<>();
+    MutableLiveData<String> answer = new MutableLiveData<>();
+
+
+    public MutableLiveData<String> getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer.setValue(answer);
+    }
+
 
 
     public MutableLiveData<String> getTopic() {
@@ -25,4 +36,5 @@ public class ItemViewModel extends ViewModel {
     public void setLevel(int a) {
         this.level.setValue(a);
     }
+
 }

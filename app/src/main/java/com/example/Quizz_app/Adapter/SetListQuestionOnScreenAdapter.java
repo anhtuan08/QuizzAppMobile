@@ -16,8 +16,11 @@ import java.util.List;
 public class SetListQuestionOnScreenAdapter extends RecyclerView.Adapter<SetListQuestionOnScreenAdapter.MyViewHolder> {
     List<DataListQuestion> listQuestion;
 
-    public SetListQuestionOnScreenAdapter(List<DataListQuestion> listQuestion) {
+    SetOnclickedForAnAnswer setOnclickedForAnAnswer;
+
+    public SetListQuestionOnScreenAdapter(List<DataListQuestion> listQuestion, SetOnclickedForAnAnswer setOnclickedForAnAnswer) {
         this.listQuestion = listQuestion;
+        this.setOnclickedForAnAnswer = setOnclickedForAnAnswer;
     }
 
     @NonNull
@@ -41,6 +44,13 @@ public class SetListQuestionOnScreenAdapter extends RecyclerView.Adapter<SetList
         dataListQuestion = listQuestion.get(position);
 
        holder.abc.setText(dataListQuestion.getListQuestion());
+
+       holder.abc.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               setOnclickedForAnAnswer.onItemClicked(dataListQuestion);
+           }
+       });
     }
 
     @Override

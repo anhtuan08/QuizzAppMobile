@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static String topic;
 
+    private static String answer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
             setTopic(item);
         });
 
+        itemViewModel.getTopic().observe(this, s -> {
+            setAnswer(s);
+        });
+
     }
 
     public static String getTopic () {
@@ -55,5 +61,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void setLevel (Integer level){
         this.level = level;
+    }
+
+    public static String getAnswer() {
+        return answer;
+    }
+
+    public static void setAnswer(String answer) {
+        MainActivity.answer = answer;
     }
 }

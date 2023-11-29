@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,7 +24,9 @@ import android.widget.Toast;
 
 import com.example.Quizz_app.Activity.MainActivity;
 import com.example.Quizz_app.Adapter.SetListQuestionOnScreenAdapter;
+import com.example.Quizz_app.Adapter.SetOnclickedForAnAnswer;
 import com.example.Quizz_app.Data.DataListQuestion;
+import com.example.Quizz_app.ViewModel.ItemViewModel;
 import com.example.constraint_layout.R;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputLayout;
@@ -42,6 +46,7 @@ public class Screen5 extends Fragment {
     TextView singleQuestion;
     List<DataListQuestion> listQuestionInlist;
 
+
     SetListQuestionOnScreenAdapter setListQuestionOnScreenAdapter;
 
     RecyclerView recyclerView;
@@ -51,6 +56,9 @@ public class Screen5 extends Fragment {
     String[] topic = {"Khoa hoc", "Nghe thuat", "Dia ly", "Lich su"};
 
     ArrayAdapter<String> arrayAdapter;
+
+    ItemViewModel itemViewModel;
+
     
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -60,7 +68,10 @@ public class Screen5 extends Fragment {
         autoCompleteTextView =  view.findViewById(R.id.spinnerTopic);
 
         arrayAdapter = new ArrayAdapter<String>(getContext(), R.layout.list_item, topic);
+
         autoCompleteTextView.setAdapter(arrayAdapter);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -75,12 +86,27 @@ public class Screen5 extends Fragment {
                 else{
                     loadHisQuestion();
                 }
-                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        setListQuestionOnScreenAdapter = new SetListQuestionOnScreenAdapter(listQuestionInlist);
-        recyclerView.setAdapter(setListQuestionOnScreenAdapter);
+                setListQuestionOnScreenAdapter = new SetListQuestionOnScreenAdapter(listQuestionInlist, new SetOnclickedForAnAnswer() {
+                    @Override
+                    public void onItemClicked(DataListQuestion dataListQuestion) {
+                        Toast.makeText(getContext(), "Cau tra loi la: " , Toast.LENGTH_SHORT).show();
+                        sendQuestion(dataListQuestion.getListQuestion());
+                        changeToAnswerScreen();
+                    }
+                });
+                     recyclerView.setAdapter(setListQuestionOnScreenAdapter);
+            }
 
+            private void changeToAnswerScreen() {
+                Navigation.findNavController(view).navigate(R.id.action_screen5_to_screen69);
             }
         });
+    }
+
+    private void sendQuestion(String s) {
+        itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
+         itemViewModel.setAnswer(s.toString());
+
     }
 
     private void loadHisQuestion() {
@@ -215,4 +241,5 @@ public class Screen5 extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_screen5, container, false);
     }
+
 }
