@@ -15,14 +15,17 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.Quizz_app.Adapter.ListQuestionAdapter;
+
+import com.example.Quizz_app.Activity.MainActivity;
 import com.example.Quizz_app.Adapter.SetListQuestionOnScreenAdapter;
 import com.example.Quizz_app.Data.DataListQuestion;
-import com.example.Quizz_app.Data.DataProduct;
 import com.example.constraint_layout.R;
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,7 +39,7 @@ import java.util.List;
 
 public class Screen5 extends Fragment {
 
-    TextView abc;
+    TextView singleQuestion;
     List<DataListQuestion> listQuestionInlist;
 
     SetListQuestionOnScreenAdapter setListQuestionOnScreenAdapter;
@@ -45,48 +48,147 @@ public class Screen5 extends Fragment {
 
     AutoCompleteTextView autoCompleteTextView;
 
+    String[] topic = {"Khoa hoc", "Nghe thuat", "Dia ly", "Lich su"};
+
     ArrayAdapter<String> arrayAdapter;
-
-
-    String[] topic = {"khoa hoc, dia ly, lich su, nghe thuat"};
-
+    
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        abc = view.findViewById(R.id.textView_eachQuestion);
+        singleQuestion = view.findViewById(R.id.textView_singleQuestion);
         recyclerView = view.findViewById(R.id.recycleView_listQuestion);
-        autoCompleteTextView = view.findViewById(R.id.autoComplete_Topic);
+        autoCompleteTextView =  view.findViewById(R.id.spinnerTopic);
 
-        arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.list_question);
-
+        arrayAdapter = new ArrayAdapter<String>(getContext(), R.layout.list_item, topic);
         autoCompleteTextView.setAdapter(arrayAdapter);
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String abc = parent.getItemAtPosition(position).toString();
+                if(abc.equals("Khoa hoc")){
+                    loadScienceQuestion();
+                } else if (abc.equals("Nghe thuat")) {
+                    loadArtQuestion();
+                } else if (abc.equals("Dia ly")) {
+                    loadGeoQuestion();
+                }
+                else{
+                    loadHisQuestion();
+                }
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        setListQuestionOnScreenAdapter = new SetListQuestionOnScreenAdapter(listQuestionInlist);
+        recyclerView.setAdapter(setListQuestionOnScreenAdapter);
 
+            }
+        });
+    }
 
-        String jsonQuiz = loadJsonFromAsset("easyQuestion.json");
+    private void loadHisQuestion() {
+        String jsonQuiz1 = loadJsonFromAsset("easyQuestion.json");
+        String jsonQuiz2 = loadJsonFromAsset("difficultQuestion.json");
         listQuestionInlist = new ArrayList<>();
 
 
         try {
-            JSONObject jsonObject = new JSONObject(jsonQuiz);
-            JSONArray jsonArray = jsonObject.getJSONArray("easyQuestionArt");
-            for(int i = 0; i < jsonArray.length(); i++){
-                 JSONObject object = jsonArray.getJSONObject(i);
-                 String abc = object.getString("question");
-                 listQuestionInlist.add(new DataListQuestion(abc));
-                 Log.d("listQuestionInlist", listQuestionInlist.toString());
+            JSONObject jsonObject1 = new JSONObject(jsonQuiz1);
+            JSONObject jsonObject2 = new JSONObject(jsonQuiz2);
+            JSONArray jsonArray1 = jsonObject1.getJSONArray("easyQuestionHistory");
+            JSONArray jsonArray2= jsonObject2.getJSONArray("DifficultHistory");
+            for(int i = 0; i < jsonArray1.length(); i++){
+                JSONObject object1 = jsonArray1.getJSONObject(i);
+                String easyQuestion = object1.getString("question");
+                listQuestionInlist.add(new DataListQuestion(easyQuestion));
+                Log.d("listQuestionInlist", listQuestionInlist.toString());
             }
-
+            for (int j = 0; j< jsonArray2.length(); j++){
+                JSONObject object2 = jsonArray2.getJSONObject(j);
+                String hardQuestion = object2.getString("question");
+                listQuestionInlist.add(new DataListQuestion(hardQuestion));
+            }
         } catch (JSONException e) {
             Log.d("danh sach cau hoi", listQuestionInlist.toString());
         }
+    }
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        setListQuestionOnScreenAdapter = new SetListQuestionOnScreenAdapter(listQuestionInlist);
-        Log.d("setListQuestionOnScreenAdapter", setListQuestionOnScreenAdapter.toString());
-        recyclerView.setAdapter(setListQuestionOnScreenAdapter);
+    private void loadGeoQuestion() {
+        String jsonQuiz1 = loadJsonFromAsset("easyQuestion.json");
+        String jsonQuiz2 = loadJsonFromAsset("difficultQuestion.json");
+        listQuestionInlist = new ArrayList<>();
 
 
+        try {
+            JSONObject jsonObject1 = new JSONObject(jsonQuiz1);
+            JSONObject jsonObject2 = new JSONObject(jsonQuiz2);
+            JSONArray jsonArray1 = jsonObject1.getJSONArray("easyQuestionGeography");
+            JSONArray jsonArray2= jsonObject2.getJSONArray("DifficultGeography");
+            for(int i = 0; i < jsonArray1.length(); i++){
+                JSONObject object1 = jsonArray1.getJSONObject(i);
+                String easyQuestion = object1.getString("question");
+                listQuestionInlist.add(new DataListQuestion(easyQuestion));
+                Log.d("listQuestionInlist", listQuestionInlist.toString());
+            }
+            for (int j = 0; j< jsonArray2.length(); j++){
+                JSONObject object2 = jsonArray2.getJSONObject(j);
+                String hardQuestion = object2.getString("question");
+                listQuestionInlist.add(new DataListQuestion(hardQuestion));
+            }
+        } catch (JSONException e) {
+            Log.d("danh sach cau hoi", listQuestionInlist.toString());
+        }
+    }
+
+    private void loadArtQuestion() {
+        String jsonQuiz1 = loadJsonFromAsset("easyQuestion.json");
+        String jsonQuiz2 = loadJsonFromAsset("difficultQuestion.json");
+        listQuestionInlist = new ArrayList<>();
+
+
+        try {
+            JSONObject jsonObject1 = new JSONObject(jsonQuiz1);
+            JSONObject jsonObject2 = new JSONObject(jsonQuiz2);
+            JSONArray jsonArray1 = jsonObject1.getJSONArray("easyQuestionArt");
+            JSONArray jsonArray2= jsonObject2.getJSONArray("DifficultArt");
+            for(int i = 0; i < jsonArray1.length(); i++){
+                JSONObject object1 = jsonArray1.getJSONObject(i);
+                String easyQuestion = object1.getString("question");
+                listQuestionInlist.add(new DataListQuestion(easyQuestion));
+                Log.d("listQuestionInlist", listQuestionInlist.toString());
+            }
+            for (int j = 0; j< jsonArray2.length(); j++){
+                JSONObject object2 = jsonArray2.getJSONObject(j);
+                String hardQuestion = object2.getString("question");
+                listQuestionInlist.add(new DataListQuestion(hardQuestion));
+            }
+        } catch (JSONException e) {
+            Log.d("danh sach cau hoi", listQuestionInlist.toString());
+        }
+    }
+
+    private void loadScienceQuestion() {
+        String jsonQuiz1 = loadJsonFromAsset("easyQuestion.json");
+        String jsonQuiz2 = loadJsonFromAsset("difficultQuestion.json");
+        listQuestionInlist = new ArrayList<>();
+
+
+        try {
+            JSONObject jsonObject1 = new JSONObject(jsonQuiz1);
+            JSONObject jsonObject2 = new JSONObject(jsonQuiz2);
+            JSONArray jsonArray1 = jsonObject1.getJSONArray("easyQuestionScience");
+            JSONArray jsonArray2= jsonObject2.getJSONArray("DifficultScience");
+            for(int i = 0; i < jsonArray1.length(); i++){
+                JSONObject object1 = jsonArray1.getJSONObject(i);
+                String easyQuestion = object1.getString("question");
+                listQuestionInlist.add(new DataListQuestion(easyQuestion));
+                Log.d("listQuestionInlist", listQuestionInlist.toString());
+            }
+            for (int j = 0; j< jsonArray2.length(); j++){
+                JSONObject object2 = jsonArray2.getJSONObject(j);
+                String hardQuestion = object2.getString("question");
+                listQuestionInlist.add(new DataListQuestion(hardQuestion));
+            }
+        } catch (JSONException e) {
+            Log.d("danh sach cau hoi", listQuestionInlist.toString());
+        }
     }
 
     private String loadJsonFromAsset(String s) {

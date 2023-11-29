@@ -54,7 +54,7 @@ public class SetListQuestionOnScreenAdapter extends RecyclerView.Adapter<SetList
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            abc = itemView.findViewById(R.id.textView_eachQuestion);
+            abc = itemView.findViewById(R.id.textView_singleQuestion);
         }
     }
 }
