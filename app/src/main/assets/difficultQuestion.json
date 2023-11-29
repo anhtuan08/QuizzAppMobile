@@ -36,7 +36,7 @@
       "question": "Tượng đồng có niên đại khoảng năm 850 đến năm 1250 thuộc:",
       "answerA": "La Mã cổ đại.",
       "answerB": "Ấn Độ cổ đại.",
-      "answerC": " Lưỡng Hà cổ đại.",
+      "answerC": "Lưỡng Hà cổ đại.",
       "answerD": "Cả A, B, C đều sai.",
       "correct": "buc tranh 3"
     }
@@ -44,130 +44,130 @@
 
   "DifficultScience": [
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den ",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 1"
+      "question": "Nhà khoa học nào dưới đây là người tìm ra vắc-xin chữa bệnh Dại?",
+      "answerA": "Hippocrates",
+      "answerB": "Louis Pasteur",
+      "answerC": "Albert Einstein",
+      "answerD": "Edward Jenner",
+      "correct": "Louis Pasteur"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den qweqwe",
-      "answerA": "DSADAA",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 2"
+      "question": "Cuộc Cách mạng Công nghiệp bắt đầu vào thế kỷ nào?",
+      "answerA": "Thế kỷ 18",
+      "answerB": "Thế kỷ 19",
+      "answerC": "Thế kỷ 17",
+      "answerD": "Thế kỷ 20",
+      "correct": "Thế kỷ 19"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den ryrtyry",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 3"
+      "question": "Theo các nhà thiên văn học, thành phần chủ yếu cấu tạo nên sao chổi là gì?",
+      "answerA": "Kim loại",
+      "answerB": "Đất đá",
+      "answerC": "Dung nham nóng chảy",
+      "answerD": "Băng",
+      "correct": "Băng"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den uoiuoiuo",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 4"
+      "question": "Những nguyên tử nào chiếm tỉ lệ lớn nhất trong vỏ trái đất?",
+      "answerA": "Oxy",
+      "answerB": "Silic",
+      "answerC": "Nhôm",
+      "answerD": "Sắt",
+      "correct": "Silic"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den zxczxc",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 3"
+      "question": "Nhóm nguyên tố nào được gọi là \"khí hiếm\" và thường được sử dụng trong các bóng đèn huỳnh quang?",
+      "answerA": "Halogen",
+      "answerB": "Edelweiss",
+      "answerC": "Noble gas",
+      "answerD": "Alkali metal",
+      "correct": "Noble gas"
     }
   ],
 
   "DifficultHistory": [
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2023",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 1"
+      "question": "Trận chiến nào đánh dấu sự kết thúc Chiến tranh thế giới thứ nhất?",
+      "answerA": "Trận Verdun",
+      "answerB": "Trận Jutland",
+      "answerC": "Trận Marne",
+      "answerD": "Trận Amiens",
+      "correct": "Trận Amiens"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2024",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 2"
+      "question": "Ai là vị vua nổi tiếng của Ai Cập cổ đại xây dựng các đền thờ lớn, như Karnak và Luxor?",
+      "answerA": "Thutmose III",
+      "answerB": "Cleopatra",
+      "answerC": "Ramesses II",
+      "answerD": "Tutankhamun",
+      "correct": "Ramesses II"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2025",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 3"
+      "question": "Ai là người lãnh đạo của Đảng Cộng sản Việt Nam trong suốt chiến tranh miền Nam?",
+      "answerA": "Hồ Chí Minh",
+      "answerB": "Võ Nguyên Giáp",
+      "answerC": "Lê Duẩn",
+      "answerD": "Phạm Văn Đồng",
+      "correct": "Lê Duẩn"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2026",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 4"
+      "question": "Năm 1789, cuộc nổi dậy nào đã diễn ra ở Tây Nguyên chống lại chính quyền Nguyễn Ánh?",
+      "answerA": "Nổi dậy Tây Sơn",
+      "answerB": "Nổi dậy Quang Trung",
+      "answerC": "Nổi dậy Liên Minh",
+      "answerD": "Nổi dậy Tây Ninh",
+      "correct": "Nổi dậy Liên Minh"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2027",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 3"
+      "question": "Điều gì đã đánh dấu sự kiện Hồi giáo Mặt trời tại Huế năm 1963?",
+      "answerA": "Cuộc Đảo chính thất bại",
+      "answerB": "Sự kiện Thiền viện Quốc Học",
+      "answerC": "Áp đặt Nghị quyết 9 của Diệm",
+      "answerD": "Cuộc Tổng tiến công Tết Mậu Thân",
+      "correct": "Cuộc Đảo chính thất bại"
     }
   ],
 
   "DifficultGeography": [
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2023",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 1"
+      "question": "Rừng mưa nhiệt đới Amazon trải rộng trên bao nhiêu quốc gia và vùng lãnh thổ?",
+      "answerA": "6",
+      "answerB": "7",
+      "answerC": "8",
+      "answerD": "9",
+      "correct": "9"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2024",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 2"
+      "question": "Quốc gia nào diện tích nhỏ nhất thế giới?",
+      "answerA": "Vantican",
+      "answerB": "Monaco",
+      "answerC": "Liechtenstein",
+      "answerD": "Benin",
+      "correct": "Vantican"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2025",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 3"
+      "question": "Lúc mới tự trị, khu tự trị Việt Bắc có mấy tỉnh?",
+      "answerA": "5 tỉnh, 2 huyện",
+      "answerB": "5 tỉnh, 1 huyện",
+      "answerC": "5 tỉnh, 3 huyện",
+      "answerD": "5 tỉnh",
+      "correct": "5 tỉnh, 1 huyện"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2026",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 4"
+      "question": "Tên đèo nào có nghĩa là Sừng trời?",
+      "answerA": "Đèo Pha Đin",
+      "answerB": "Đèo Mã Pì Lèng",
+      "answerC": "Đèo Khau Phạ",
+      "answerD": "Đèo Xá Tổng",
+      "correct": "Đèo Khau Phạ"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2027",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 3"
+      "question": "Tên gọi Đà Lạt có ý nghĩa gì?",
+      "answerA": "Suối cho người Lạch",
+      "answerB": "Cho người khác sự mát lành",
+      "answerC": "Vui vẻ, sung sướng",
+      "answerD": "Rừng sương",
+      "correct": "Suối cho người Lạch"
     }
   ]
 }
