@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static String answer;
 
+    private static Integer id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +30,22 @@ public class MainActivity extends AppCompatActivity {
 
        itemViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
 
-        itemViewModel.getLevel().observe(this, item -> {
-            // Perform an action with the latest item data.
-            setLevel(item);
+        itemViewModel.getLevel().observe(this, level -> {
+            setLevel(level);
         });
 
 
-        itemViewModel.getTopic().observe(this, item -> {
+        itemViewModel.getTopic().observe(this, topic -> {
             // Perform an action with the latest item data.
-            setTopic(item);
+            setTopic(topic);
         });
 
-        itemViewModel.getTopic().observe(this, s -> {
-            setAnswer(s);
+        itemViewModel.getAnswer().observe(this, answer -> {
+            setAnswer(answer);
+        });
+
+        itemViewModel.getId().observe(this, id -> {
+            setId(Integer.valueOf(id));
         });
 
     }
@@ -67,7 +71,15 @@ public class MainActivity extends AppCompatActivity {
         return answer;
     }
 
-    public static void setAnswer(String answer) {
-        MainActivity.answer = answer;
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public static Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

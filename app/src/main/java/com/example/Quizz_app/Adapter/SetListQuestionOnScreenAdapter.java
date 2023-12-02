@@ -18,6 +18,7 @@ public class SetListQuestionOnScreenAdapter extends RecyclerView.Adapter<SetList
 
     SetOnclickedForAnAnswer setOnclickedForAnAnswer;
 
+
     public SetListQuestionOnScreenAdapter(List<DataListQuestion> listQuestion, SetOnclickedForAnAnswer setOnclickedForAnAnswer) {
         this.listQuestion = listQuestion;
         this.setOnclickedForAnAnswer = setOnclickedForAnAnswer;
@@ -51,6 +52,7 @@ public class SetListQuestionOnScreenAdapter extends RecyclerView.Adapter<SetList
                setOnclickedForAnAnswer.onItemClicked(dataListQuestion);
            }
        });
+
     }
 
     @Override

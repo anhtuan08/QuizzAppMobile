@@ -17,19 +17,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.Quizz_app.Activity.MainActivity;
 import com.example.Quizz_app.Adapter.SetListQuestionOnScreenAdapter;
 import com.example.Quizz_app.Adapter.SetOnclickedForAnAnswer;
 import com.example.Quizz_app.Data.DataListQuestion;
 import com.example.Quizz_app.ViewModel.ItemViewModel;
 import com.example.constraint_layout.R;
-import com.google.android.material.textfield.MaterialAutoCompleteTextView;
-import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,8 +41,6 @@ public class Screen5 extends Fragment {
 
     TextView singleQuestion;
     List<DataListQuestion> listQuestionInlist;
-
-
     SetListQuestionOnScreenAdapter setListQuestionOnScreenAdapter;
 
     RecyclerView recyclerView;
@@ -86,15 +80,21 @@ public class Screen5 extends Fragment {
                 else{
                     loadHisQuestion();
                 }
+                sendTopic(abc);
                 setListQuestionOnScreenAdapter = new SetListQuestionOnScreenAdapter(listQuestionInlist, new SetOnclickedForAnAnswer() {
                     @Override
                     public void onItemClicked(DataListQuestion dataListQuestion) {
                         Toast.makeText(getContext(), "Cau tra loi la: " , Toast.LENGTH_SHORT).show();
-                        sendQuestion(dataListQuestion.getListQuestion());
+                        sendQuestion(dataListQuestion.getListQuestion(), dataListQuestion.getId());
                         changeToAnswerScreen();
                     }
                 });
                      recyclerView.setAdapter(setListQuestionOnScreenAdapter);
+            }
+
+            private void sendTopic(String s) {
+                 itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
+                 itemViewModel.setTopic(s);
             }
 
             private void changeToAnswerScreen() {
@@ -103,9 +103,11 @@ public class Screen5 extends Fragment {
         });
     }
 
-    private void sendQuestion(String s) {
+    private void sendQuestion(String s, int a) {
         itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
-         itemViewModel.setAnswer(s.toString());
+        itemViewModel.setAnswer(s.toString());
+        itemViewModel.setId(a);
+
 
     }
 
@@ -120,16 +122,14 @@ public class Screen5 extends Fragment {
             JSONObject jsonObject2 = new JSONObject(jsonQuiz2);
             JSONArray jsonArray1 = jsonObject1.getJSONArray("easyQuestionHistory");
             JSONArray jsonArray2= jsonObject2.getJSONArray("DifficultHistory");
-            for(int i = 0; i < jsonArray1.length(); i++){
+            for(int i = 0; i < jsonArray1.length() + jsonArray2.length(); i+= 2){
                 JSONObject object1 = jsonArray1.getJSONObject(i);
+                JSONObject object2 = jsonArray2.getJSONObject(i);
                 String easyQuestion = object1.getString("question");
-                listQuestionInlist.add(new DataListQuestion(easyQuestion));
-                Log.d("listQuestionInlist", listQuestionInlist.toString());
-            }
-            for (int j = 0; j< jsonArray2.length(); j++){
-                JSONObject object2 = jsonArray2.getJSONObject(j);
                 String hardQuestion = object2.getString("question");
-                listQuestionInlist.add(new DataListQuestion(hardQuestion));
+                listQuestionInlist.add(new DataListQuestion(easyQuestion,i));
+                listQuestionInlist.add(new DataListQuestion(hardQuestion,i+1));
+                Log.d("listQuestionInlist", listQuestionInlist.toString());
             }
         } catch (JSONException e) {
             Log.d("danh sach cau hoi", listQuestionInlist.toString());
@@ -147,16 +147,14 @@ public class Screen5 extends Fragment {
             JSONObject jsonObject2 = new JSONObject(jsonQuiz2);
             JSONArray jsonArray1 = jsonObject1.getJSONArray("easyQuestionGeography");
             JSONArray jsonArray2= jsonObject2.getJSONArray("DifficultGeography");
-            for(int i = 0; i < jsonArray1.length(); i++){
+            for(int i = 0; i < jsonArray1.length() + jsonArray2.length(); i+= 2){
                 JSONObject object1 = jsonArray1.getJSONObject(i);
+                JSONObject object2 = jsonArray2.getJSONObject(i);
                 String easyQuestion = object1.getString("question");
-                listQuestionInlist.add(new DataListQuestion(easyQuestion));
-                Log.d("listQuestionInlist", listQuestionInlist.toString());
-            }
-            for (int j = 0; j< jsonArray2.length(); j++){
-                JSONObject object2 = jsonArray2.getJSONObject(j);
                 String hardQuestion = object2.getString("question");
-                listQuestionInlist.add(new DataListQuestion(hardQuestion));
+                listQuestionInlist.add(new DataListQuestion(easyQuestion,i));
+                listQuestionInlist.add(new DataListQuestion(hardQuestion,i+1));
+                Log.d("listQuestionInlist", listQuestionInlist.toString());
             }
         } catch (JSONException e) {
             Log.d("danh sach cau hoi", listQuestionInlist.toString());
@@ -174,16 +172,14 @@ public class Screen5 extends Fragment {
             JSONObject jsonObject2 = new JSONObject(jsonQuiz2);
             JSONArray jsonArray1 = jsonObject1.getJSONArray("easyQuestionArt");
             JSONArray jsonArray2= jsonObject2.getJSONArray("DifficultArt");
-            for(int i = 0; i < jsonArray1.length(); i++){
+            for(int i = 0; i < jsonArray1.length() + jsonArray2.length(); i+= 2){
                 JSONObject object1 = jsonArray1.getJSONObject(i);
+                JSONObject object2 = jsonArray2.getJSONObject(i);
                 String easyQuestion = object1.getString("question");
-                listQuestionInlist.add(new DataListQuestion(easyQuestion));
-                Log.d("listQuestionInlist", listQuestionInlist.toString());
-            }
-            for (int j = 0; j< jsonArray2.length(); j++){
-                JSONObject object2 = jsonArray2.getJSONObject(j);
                 String hardQuestion = object2.getString("question");
-                listQuestionInlist.add(new DataListQuestion(hardQuestion));
+                listQuestionInlist.add(new DataListQuestion(easyQuestion,i));
+                listQuestionInlist.add(new DataListQuestion(hardQuestion,i+1));
+                Log.d("listQuestionInlist", listQuestionInlist.toString());
             }
         } catch (JSONException e) {
             Log.d("danh sach cau hoi", listQuestionInlist.toString());
@@ -201,16 +197,14 @@ public class Screen5 extends Fragment {
             JSONObject jsonObject2 = new JSONObject(jsonQuiz2);
             JSONArray jsonArray1 = jsonObject1.getJSONArray("easyQuestionScience");
             JSONArray jsonArray2= jsonObject2.getJSONArray("DifficultScience");
-            for(int i = 0; i < jsonArray1.length(); i++){
+            for(int i = 0; i < jsonArray1.length() + jsonArray2.length(); i+= 2){
                 JSONObject object1 = jsonArray1.getJSONObject(i);
+                JSONObject object2 = jsonArray2.getJSONObject(i);
                 String easyQuestion = object1.getString("question");
-                listQuestionInlist.add(new DataListQuestion(easyQuestion));
-                Log.d("listQuestionInlist", listQuestionInlist.toString());
-            }
-            for (int j = 0; j< jsonArray2.length(); j++){
-                JSONObject object2 = jsonArray2.getJSONObject(j);
                 String hardQuestion = object2.getString("question");
-                listQuestionInlist.add(new DataListQuestion(hardQuestion));
+                listQuestionInlist.add(new DataListQuestion(easyQuestion,i));
+                listQuestionInlist.add(new DataListQuestion(hardQuestion,i+1));
+                Log.d("listQuestionInlist", listQuestionInlist.toString());
             }
         } catch (JSONException e) {
             Log.d("danh sach cau hoi", listQuestionInlist.toString());

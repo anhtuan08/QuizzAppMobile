@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="question"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginVertical="50dp"
         />
@@ -46,6 +46,7 @@
             android:layout_marginEnd="25dp"
             android:layout_marginBottom="25dp"
             android:textSize="20dp"
+            android:background="@color/brown"
             android:text="safsdfsdfsd" />
 
         <TextView
@@ -54,6 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/answer1"
             android:layout_marginHorizontal="25dp"
+            android:background="@color/brown"
             android:textSize="20dp"
             android:text="asdasdas" />
 
@@ -67,6 +69,7 @@
             android:layout_marginTop="25dp"
             android:layout_marginEnd="25dp"
             android:layout_marginBottom="25dp"
+            android:background="@color/brown"
             android:text="sdfsfsdfs"
             android:textSize="20dp" />
 
@@ -76,18 +79,31 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/answer3"
             android:layout_marginHorizontal="25dp"
+            android:background="@color/brown"
             android:text="sdfsdfsdfds"
             android:textSize="20dp" />
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/constAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Answer: "
+        android:layout_below="@+id/layoutQuestion"
+        android:textSize="20sp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginVertical="30dp"
+        />
+
+    <TextView
         android:id="@+id/textView_textAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Answer: asdasdsadasd"
+        android:text="asdasdsadasd"
         android:layout_below="@+id/layoutQuestion"
         android:layout_centerHorizontal="true"
-        android:textSize="30sp"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/constAnswer"
         android:layout_marginVertical="30dp"/>
 
 </RelativeLayout>
