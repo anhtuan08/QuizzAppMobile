@@ -1,8 +1,8 @@
 package com.example.Quizz_app.Fragment;
 
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,35 +12,27 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
 import androidx.navigation.Navigation;
 
+import com.example.Quizz_app.Activity.MainActivity;
 import com.example.constraint_layout.R;
 
 
 public class Screen4 extends Fragment {
-    TextView TotalScore;
-    Button btnComplete;
+    TextView correctQuestion;
+    Button btnComplete, btnShareAchives, btnplayAgain;
 
-    Button btnShareAchives;
-
-    String Scores;
+    int Scores;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TotalScore   = view.findViewById(R.id.textView_numberTruequestion);
+        correctQuestion   = view.findViewById(R.id.textView_numberTruequestion);
+        btnComplete       = view.findViewById(R.id.btnComplete);
+        btnShareAchives   = view.findViewById(R.id.btnshareAchives);
+        btnplayAgain         = view.findViewById(R.id.btnPlayAgain);
 
-        btnComplete  = view.findViewById(R.id.btnComplete);
-        btnShareAchives = view.findViewById(R.id.btnshareAchives);
-
-       getParentFragmentManager().setFragmentResultListener("request", this, new FragmentResultListener() {
-           @Override
-           public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-               Scores = result.getString("count");
-                TotalScore.setText(Scores);
-           }
-       });
+        correctQuestion.setText(String.valueOf(MainActivity.getCorrectQuestion()));
 
         btnComplete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,12 +53,17 @@ public class Screen4 extends Fragment {
                 startActivity(send);
             }
         });
+        btnplayAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_screen4_to_screen3);
+            }
+        });
     }
 
 
+
     @Nullable
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

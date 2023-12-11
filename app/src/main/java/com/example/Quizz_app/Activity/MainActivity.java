@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static Integer id;
 
+    private static Integer scores;
+
+    private static Integer correctQuestion;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
             setId(Integer.valueOf(id));
         });
 
+        itemViewModel.getScores().observe(this, scores -> {
+            setScores(scores);
+        });
+
+        itemViewModel.getCorrectQuestion().observe(this, correctQuestion -> {
+            setCorrectQuestion(correctQuestion);
+        });
     }
 
     public static String getTopic () {
@@ -81,5 +92,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public static Integer getScores() {
+        return scores;
+    }
+
+    public void setScores(Integer scores) {
+        this.scores = scores;
+    }
+
+    public static Integer getCorrectQuestion() {
+        return correctQuestion;
+    }
+
+    public void setCorrectQuestion(Integer correctQuestion) {
+        this.correctQuestion = correctQuestion;
     }
 }

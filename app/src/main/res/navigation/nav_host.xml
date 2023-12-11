@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_screen4_to_screen1"
             app:destination="@id/screen1" />
+        <action
+            android:id="@+id/action_screen4_to_screen3"
+            app:destination="@id/screen3" />
     </fragment>
     <fragment
         android:id="@+id/screen5"

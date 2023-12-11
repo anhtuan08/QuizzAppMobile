@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.Quizz_app.Activity.MainActivity;
@@ -44,6 +45,8 @@ public class Screen2 extends Fragment {
 
     ItemViewModel itemViewModel;
 
+    TextView totalScores;
+
 
 
     @Override
@@ -52,6 +55,7 @@ public class Screen2 extends Fragment {
         recyclerView = view.findViewById(R.id.Recycle_View);
         btnLevel = view.findViewById(R.id.btnSwitch_level);
         btnListQuestion = view.findViewById(R.id.btnListQuestion);
+        totalScores = view.findViewById(R.id.textView_scores);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -69,10 +73,10 @@ public class Screen2 extends Fragment {
                 showToast( "Ban da chon chu de " + dataProduct.getTopic());
                 topic = dataProduct.getTopic();
 
-                getLevelQuestion();
-                getTopicQuestion(topic);
-                sendDataToActivity();
+                getLevelQuestion(flag);
+                sendDataToActivity(getLevelQuestion(flag), topic);
                 Navigation.findNavController(view).navigate(R.id.action_screen2_to_screen3);
+
             }
 
         });
@@ -86,19 +90,23 @@ public class Screen2 extends Fragment {
             }
         });
 
-
+        showTotalScores();
     }
 
-    private void getTopicQuestion(String s) {
+    private void showTotalScores() {
+        if(MainActivity.getScores() == null){
+            totalScores.setText(String.valueOf(0));
+        }
+        else{
+            totalScores.setText(String.valueOf(MainActivity.getScores()));
+        }
     }
 
-    private void sendDataToActivity() {
+    private void sendDataToActivity(int level, String topic) {
         itemViewModel =  new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
 
-        itemViewModel.setLevel(flag);
+        itemViewModel.setLevel(level);
         itemViewModel.setTopic(topic);
-
-        Log.d("chon topiccc", String.valueOf(itemViewModel.getTopic()));
 
     }
 
@@ -107,14 +115,14 @@ public class Screen2 extends Fragment {
     }
 
 
-    private int getLevelQuestion() {
+    private int getLevelQuestion(int flag_count) {
         if(btnLevel.isChecked()){
-            flag++;
+            flag_count++;
         }
         else {
-            flag = 0;
+            flag_count = 0;
         }
-        return flag;
+        return flag_count;
     }
 
 
