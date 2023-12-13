@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 import com.example.Quizz_app.Activity.MainActivity;
 import com.example.Quizz_app.Data.DataProduct;
 import com.example.Quizz_app.Data.DataQuestionTopic;
+import com.example.Quizz_app.ViewModel.ItemViewModel;
 import com.example.constraint_layout.R;
 
 
@@ -46,6 +48,8 @@ public class Screen3 extends Fragment {
     int getCurrentquestion = 0;
 
     int count = 0;
+
+    int totalScores = 0;
 
     String SelectedTopic;
 
@@ -118,11 +122,9 @@ public class Screen3 extends Fragment {
                         }
                         getCurrentquestion++;
                     if(getCurrentquestion > listTopic.size() - 1){
+                        bindingScores();
+                        bindingCorrectQuestion(count);
                         Navigation.findNavController(view).navigate(R.id.action_screen3_to_screen4);
-                        Log.d("dem so cau hoi dung", String.valueOf(count));
-                        Bundle bundle = new Bundle();
-                        bundle.putString("count", String.valueOf(count));
-                        getParentFragmentManager().setFragmentResult("request", bundle);
 
                     }else {
                             setQuestionScreen(getCurrentquestion);
@@ -130,6 +132,26 @@ public class Screen3 extends Fragment {
                 }
             }
         });
+
+    }
+
+    private void bindingCorrectQuestion(int correcquestion) {
+        ItemViewModel itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
+        itemViewModel.setCorrectQuestion(correcquestion);
+    }
+
+
+    private void bindingScores() {
+
+        ItemViewModel itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
+        if(MainActivity.getLevel() == 1){
+            totalScores = totalScores + (count *2);
+            itemViewModel.setScores(totalScores);
+        }
+        else{
+            totalScores = totalScores + count;
+            itemViewModel.setScores(totalScores);
+        }
 
     }
 
