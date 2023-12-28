@@ -145,11 +145,11 @@ public class Screen3 extends Fragment {
 
         ItemViewModel itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
         if(MainActivity.getLevel() == 1){
-            totalScores = totalScores + (count *2);
+            totalScores = count * 2;
             itemViewModel.setScores(totalScores);
         }
         else{
-            totalScores = totalScores + count;
+            totalScores = count;
             itemViewModel.setScores(totalScores);
         }
 

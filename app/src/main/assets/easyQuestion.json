@@ -44,130 +44,130 @@
 
   "easyQuestionScience": [
     {
-      "question": "Dau la buc tranh dep nhsdfsdfsdfsdfsd nhung nam 1930 den 2023",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 1"
+      "question": "Khoa học tự nhiên nghiên cứu về lĩnh vực nào dưới đây?",
+      "answerA": "Các hiện tượng tự nhiên",
+      "answerB": "Các tính chất của tự nhiên",
+      "answerC": "Các quy luật tự nhiên",
+      "answerD": "Tất cả các ý trên",
+      "correct": "Các hiện tượng tự nhiên"
     },
     {
-      "question": "Dau la buc tranh dep sfsdfsdfsdfsdfsdfsdfm 1930 den 2024",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 2"
+      "question": "Nguyên tử nhỏ nhất của vật chất là gì?",
+      "answerA": "Proton",
+      "answerB": "Electron",
+      "answerC": "Neutron",
+      "answerD": "Quark",
+      "correct": "Quark"
     },
     {
-      "question": "Dau la buc tranh dep nhsfsdfsdfsdfung nam 1930 den 2025",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 3"
+      "question": "Loài chim nào bay cao nhất trong các loài chim?",
+      "answerA": "Chim ruồi",
+      "answerB": "Đại bàng",
+      "answerC": "Chim kiwi",
+      "answerD": "Chim sẻ",
+      "correct": "Đại bàng"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nasdfsdfsdfsdfn 2026",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 4"
+      "question": "Quang hợp diễn ra ở bộ phận nào của cây?",
+      "answerA": "Cây lá",
+      "answerB": "Cây rễ",
+      "answerC": "Cây thân",
+      "answerD": "Cây hoa",
+      "correct": "Cây lá"
     },
     {
-      "question": "Dau la buc trasfsdfsdfdsfdsfdsf gioi trong nhung nam 1930 den 2027",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 3"
+      "question": "Trong hệ Mặt Trời, hành tinh nào gần nhất với Mặt Trời?",
+      "answerA": "Mars",
+      "answerB": "Venus",
+      "answerC": "Mercury",
+      "answerD": "Jupiter",
+      "correct": "Mercury"
     }
   ],
 
   "easyQuestionHistory": [
     {
-      "question": "Dau la buc tranham 1930 den 2023",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 1"
+      "question": "Khó khăn lớn nhất của đất nước ta sau cách mạng tháng Tám gì?",
+      "answerA": "Các kẻ thù ngoại xâm, nội phản",
+      "answerB": "Nạn đói, nạn dốt đe doạ nghiêm trọng cuộc sống của nhân dân ta",
+      "answerC": "Ngân quỹ nhà nước trống rỗng",
+      "answerD": " Các tổ chức phản cách mạng ra sức chống phá cách mạng",
+      "correct": "Nạn đói, nạn dốt đe doạ nghiêm trọng cuộc sống của nhân dân ta"
     },
     {
-      "question": "Dau la buc tranh dep nhat theaen 2024",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 2"
+      "question": "Sau cách mạng tháng 8 năm 1945, chúng ta phải đối mặt với nhiều kẻ thù, trong đó nguy hiểm nhất là",
+      "answerA": "quân Trung Hoa Dân Quốc.",
+      "answerB": "thực dân Pháp",
+      "answerC": "đế quốc Anh",
+      "answerD": "phát xít Nhật",
+      "correct": "thực dân Pháp"
     },
     {
-      "question": "Dau la buc tranh dep nhat en 2025",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
+      "question": "Quân đội Đồng minh các nước vào nước ta sau năm 1945 là",
+      "answerA": "quân Anh, quân Mĩ",
+      "answerB": "quân Pháp, quân Anh",
+      "answerC": "Quân Anh, quân Trung Hoa Dân quốc",
+      "answerD": "quân Pháp, quân Trung Hoa Dân quốc",
       "correct": "buc tranh 3"
     },
     {
-      "question": "Dau la buc tranh dep nhan 2026",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 4"
+      "question": "Quân Trung Hoa Dân quốc và tay sai của chúng ở miền Bắc có âm mưu gì?",
+      "answerA": "Giải giáp khí giới quân Nhật",
+      "answerB": "Giúp đỡ chính quyền cách mạng nước ta",
+      "answerC": "Đánh quân Anh",
+      "answerD": "Cướp chính quyền của ta",
+      "correct": "Cướp chính quyền của ta"
     },
     {
-      "question": "Dau la buc tranh dep nhat the en 2027",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 3"
+      "question": "Khó khăn nghiêm trọng nhất của nước Việt Nam Dân chủ Cộng hòa sau Cách mạng tháng Tám năm 1945 là",
+      "answerA": "nạn đói",
+      "answerB": "giặc dốt",
+      "answerC": "tài chính",
+      "answerD": "giặc ngoại xâm.",
+      "correct": "nạn đói"
     }
   ],
 
   "easyQuestionGeography": [
     {
-      "question": "Dau l",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 1"
+      "question": "Nguyên nhân nào làm cho thiên nhiên Việt Nam khác hẳn với thiên nhiên các nước có cùng vĩ độ Tây Á, Đông Phi và Tây Phi",
+      "answerA": " Việt Nam nằm trong khu vực nhiệt đới gió mùa",
+      "answerB": "Việt Nam có bờ biển dài, khúc khuỷu",
+      "answerC": "Do đất nước hẹp ngang, trải dài trên nhiền vĩ độ",
+      "answerD": "Do cả 3 nguyên nhân",
+      "correct": "Việt Nam nằm trong khu vực nhiệt đới gió mùa"
     },
     {
-      "question": "Dau l",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 2"
+      "question": "Xu hướng quốc tế hóa và khu vực hóa nền kinh tế thế giới diễn ra với quy mô lớn và nhịp dộ cao là điều kiện để",
+      "answerA": "Nước ta tận dụng các nguồn lực bên ngoài để phát triển kinh tế xã hội",
+      "answerB": "Nước ta mở rộng buôn bán với nhiều nước trên thế giới",
+      "answerC": "Nước ta bộc lộ những hạn chế về vốn, công nghệ trong quá trình phát triển sản xuất.",
+      "answerD": "Tất cả các điều kiện trên",
+      "correct": "Nước ta tận dụng các nguồn lực bên ngoài để phát triển kinh tế xã hội"
     },
     {
-      "question": "Dau la 1930 den 2025",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 3"
+      "question": "Những trở ngại chính đối với việc phát triển kinh tế xã hội ở nước ta về TNTN là:",
+      "answerA": "Trữ lượng ít",
+      "answerB": "Số lượng nhiều, trữ lượng nhỏ lại phân tán",
+      "answerC": "Ít loại có giá trị",
+      "answerD": "TNTN đang bị suy thoái nghiêm trọng",
+      "correct": "Số lượng nhiều, trữ lượng nhỏ lại phân tán"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2026",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 4"
+      "question": "Tài nguyên giữ vị trí quan trọng nhất Việt Nam hiện nay là:",
+      "answerA": "Tài nguyên đất",
+      "answerB": "Tài nguyên sinh vật",
+      "answerC": "Tài nguyên nước",
+      "answerD": "Tài nguyên khoáng sản",
+      "correct": "Tài nguyên đất"
     },
     {
-      "question": "Dau la buc tranh dep nhat the gioi trong nhung nam 1930 den 2027",
-      "answerA": "buc tranh 1",
-      "answerB": "buc tranh 2",
-      "answerC": "buc tranh 3",
-      "answerD": "buc tranh 4",
-      "correct": "buc tranh 3"
+      "question": "Tài nguyên có ý nghĩa đặc biệt dối với sự phát triển kinh tế xã hội Việt Nam hiện nay là:",
+      "answerA": "Tài nguyên đất",
+      "answerB": "Tài nguyên nước",
+      "answerC": "Tài nguyên sinh vật",
+      "answerD": "Tài nguyên khoáng sản",
+      "correct": "Tài nguyên khoáng sản"
     }
   ]
 }
